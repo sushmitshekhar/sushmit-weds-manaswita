@@ -1,0 +1,20 @@
+{
+  "name": "wedding-invitation",
+  "version": "1.0.0",
+  "description": "Wedding invitation website for Sushmit & Manaswita at Beldhi Golf Course, Jamshedpur (February 16, 2027)",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/styles.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/styles.css --minify"
+  },
+  "keywords": [
+    "wedding-invitation",
+    "tailwindcss",
+    "html5"
+  ],
+  "author": "Chandra Shekhar Prasad, Indira Dutta & Family",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}

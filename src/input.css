@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@theme {
+  --color-emerald-950: #05231b;
+  --color-emerald-900: #083327;
+  --color-emerald-850: #0c4132;
+  --color-emerald-800: #114f3d;
+  --color-emerald-700: #196851;
+  --color-emerald-600: #258166;
+  --color-emerald-100: #e5f0ea;
+
+  --color-gold-100: #faf2dc;
+  --color-gold-200: #f3dfb0;
+  --color-gold-300: #e8cd8b;
+  --color-gold-400: #d4af5a;
+  --color-gold-500: #b88f37;
+  --color-gold-600: #997222;
+  --color-gold-700: #7c5b17;
+
+  --color-cream-50: #fbf8f1;
+  --color-cream-100: #f4eee1;
+  --color-cream-200: #e7dcc5;
+  --color-cream-300: #d6c5a3;
+
+  --color-ink-900: #0e2920;
+  --color-ink-700: #2e4a40;
+  --color-ink-600: #466056;
+
+  --font-serif: "Cormorant Garamond", Georgia, Cambria, "Times New Roman", serif;
+  --font-script: "Great Vibes", "Brush Script MT", cursive;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  :root {
+    accent-color: #114f3d;
+    color-scheme: light;
+    --scroll-offset: 5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--scroll-offset);
+    background-color: #05231b;
+    color: #0e2920;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #fbf8f1;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p, li, blockquote {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: #114f3d;
+    color: #faf2dc;
+  }
+
+  /* Accessible focus styling */
+  :focus-visible {
+    outline: 3px solid #d4af5a;
+    outline-offset: 3px;
+  }
+}
+
+/* Scrollbar customization with adequate thumb/track contrast */
+@supports (scrollbar-color: auto) {
+  html {
+    scrollbar-color: #997222 #f4eee1;
+    scrollbar-width: thin;
+  }
+}
+
+/* Reduced motion safeguards */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Golf fairway contour subtle pattern background */
+.fairway-contours {
+  background-image:
+    radial-gradient(ellipse 80% 55% at 20% 25%, rgba(212, 175, 90, 0.1) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 60% at 85% 75%, rgba(25, 104, 81, 0.35) 0%, transparent 68%),
+    linear-gradient(160deg, #05231b 0%, #083327 52%, #0c4132 100%);
+}
+
+/* Subtle linen stationery texture on cream sections */
+.linen-surface {
+  background-color: #fbf8f1;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(212, 175, 90, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(17, 79, 61, 0.05) 0%, transparent 50%);
+}
+
+/* Gold hairline divider ornament */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 90, 0.65) 50%, transparent 100%);
+}
+
+/* Arch frame for couple portrait */
+.portrait-arch {
+  border-radius: 9999px 9999px 1.25rem 1.25rem;
+}
+
+/* Top scroll progress bar using native Scroll-Driven Animations where supported */
+.scroll-progress-bar {
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    @keyframes progress-grow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .scroll-progress-bar {
+      animation: progress-grow linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+
+  /* Scroll-driven gentle reveal for cards and sections */
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes gentle-rise {
+      from {
+        opacity: 0.25;
+        transform: translateY(1.1rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal-on-scroll {
+      animation: gentle-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 38%;
+    }
+  }
+}
+
+/* IntersectionObserver fallback class when scroll-driven view() is unsupported (e.g., Firefox) */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-fallback {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-fallback.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form validation: highlight required/invalid fields ONLY after user interaction */
+.rsvp-input:user-invalid,
+.rsvp-input.user-invalid-fallback {
+  border-color: #b42318;
+  background-color: #fef3f2;
+}
+
+.rsvp-input:user-invalid + .field-error,
+.rsvp-input.user-invalid-fallback + .field-error {
+  display: flex;
+}
+
+.rsvp-input:required:user-valid,
+.rsvp-input.user-valid-fallback {
+  border-color: #196851;
+}
+
+/* Accessible visually hidden helper */
+.sr-only-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:focus {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.25rem;
+  margin: 0;
+  overflow: visible;
+  clip-path: none;
+  background-color: #05231b;
+  color: #faf2dc;
+  border: 2px solid #d4af5a;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+/* Active navigation link styling */
+.nav-link[aria-current="location"] {
+  color: #f3dfb0;
+}
+
+.nav-link[aria-current="location"]::after {
+  transform: scaleX(1);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.25rem;
+  height: 1.5px;
+  background-color: #d4af5a;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+@media (forced-colors: active) {
+  .portrait-arch,
+  .rsvp-card,
+  .itinerary-card {
+    border: 1px solid CanvasText;
+  }
+}
