@@ -77,46 +77,238 @@
   }
 
   /**
-   * Highlights the active navigation link based on scroll position.
+   * Initializes the ScrollVite "Zari" Envelope & Wax Seal Interaction:
+   * - Tapping wax seal, envelope, overlay, or "Tap to Open" button unseals the envelope
+   * - Gold wax seal dissolves, 3D flap swings open, and royal stationery card glides upward
+   * - Smoothly auto-scrolls down into the formal invitation after card reaches peak reveal
+   * - Supports auto-open on scroll, instant skip, and replay from footer
    */
-  function initNavObserver() {
-    const navLinks = Array.from(document.querySelectorAll(".nav-link[href^='#']"));
-    if (!navLinks.length || typeof IntersectionObserver === "undefined") return;
+  function initEnvelope() {
+    const stage = document.getElementById("envelope-intro");
+    const envelope = document.getElementById("royal-envelope");
+    const seal = document.getElementById("wax-seal");
+    const tapOverlay = document.getElementById("env-tap-overlay");
+    const tapBtn = document.getElementById("tap-open-btn");
+    const tapBtnText = document.getElementById("tap-open-btn-text");
+    const subHint = document.getElementById("env-sub-hint");
+    const letter = document.getElementById("env-letter");
+    const skipBtn = document.getElementById("skip-envelope-btn");
+    const replayBtn = document.getElementById("replay-opening-btn");
+    const invitationEl = document.getElementById("invitation");
 
-    const linkBySectionId = new Map();
-    for (const link of navLinks) {
-      const id = link.getAttribute("href")?.slice(1);
-      if (id) linkBySectionId.set(id, link);
+    if (!stage || !envelope) return;
+
+    let isOpen = false;
+    let autoScrollTimer = null;
+
+    function openEnvelope(scrollImmediately = false) {
+      if (isOpen) {
+        if (invitationEl) {
+          invitationEl.scrollIntoView({ behavior: "smooth" });
+        }
+        return;
+      }
+
+      isOpen = true;
+      stage.classList.add("is-open");
+
+      if (tapBtnText) {
+        tapBtnText.textContent = "Invitation Unsealed";
+      }
+      if (subHint) {
+        subHint.textContent = "Scroll down or tap card to view full invitation ↓";
+      }
+
+      if (scrollImmediately) {
+        if (invitationEl) {
+          invitationEl.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        // Allow the flap (850ms) and rising card (1100ms) to complete smoothly before gliding down
+        if (autoScrollTimer) clearTimeout(autoScrollTimer);
+        autoScrollTimer = window.setTimeout(() => {
+          // Only auto-scroll if user hasn't already scrolled manually past the stage
+          if (window.scrollY < 200 && invitationEl) {
+            invitationEl.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 1300);
+      }
     }
 
-    const sections = Array.from(linkBySectionId.keys())
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+    // Click on entire envelope or overlay
+    envelope.addEventListener("click", () => openEnvelope(false));
+    envelope.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openEnvelope(false);
+      }
+    });
 
-    if (!sections.length) return;
+    if (tapOverlay) {
+      tapOverlay.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openEnvelope(false);
+      });
+    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          for (const link of navLinks) {
-            link.removeAttribute("aria-current");
+    // Click directly on the wax seal
+    if (seal) {
+      seal.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openEnvelope(false);
+      });
+    }
+
+    // Click on the "Tap to Open Invitation" pill button
+    if (tapBtn) {
+      tapBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openEnvelope(false);
+      });
+    }
+
+    // Click on the rising stationery card
+    if (letter) {
+      letter.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (invitationEl) {
+          invitationEl.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+
+    // Quick skip button
+    if (skipBtn) {
+      skipBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        openEnvelope(true);
+      });
+    }
+
+    // Auto-open on scroll: if user starts scrolling down without tapping, smoothly unseal
+    let hasScrolledPast = false;
+    window.addEventListener("scroll", () => {
+      if (!hasScrolledPast && !isOpen && window.scrollY > 40) {
+        hasScrolledPast = true;
+        openEnvelope(false);
+      }
+    }, { passive: true });
+
+    // Replay opening from footer
+    if (replayBtn) {
+      replayBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (autoScrollTimer) clearTimeout(autoScrollTimer);
+        isOpen = false;
+        hasScrolledPast = false;
+        stage.classList.remove("is-open");
+        if (tapBtnText) {
+          tapBtnText.textContent = "Tap to Open Invitation";
+        }
+        if (subHint) {
+          subHint.textContent = "Or scroll down to explore";
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  }
+
+  /**
+   * Initializes Sticky Navigation and Scroll Progress:
+   * - Active link highlighting
+   * - Smooth scrolling to sections
+   * - Scroll progress bar
+   */
+  function initScrollStory() {
+    const navLinks = Array.from(document.querySelectorAll(".nav-link[href^='#']"));
+    const chapters = [
+      "envelope-intro",
+      "invitation",
+      "families",
+      "events",
+      "travel",
+      "rsvp",
+    ].map((id) => document.getElementById(id)).filter(Boolean);
+
+    // Smooth click handler for navigation links
+    const allScrollLinks = Array.from(document.querySelectorAll("a[href^='#']"));
+
+    for (const link of allScrollLinks) {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (!href || href === "#") return;
+        const targetId = href.slice(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", `#${targetId}`);
+        }
+      });
+    }
+
+    const progressBar = document.querySelector(".scroll-progress-bar");
+    const supportsCssScrollTimeline =
+      typeof CSS !== "undefined" && CSS.supports("animation-timeline: scroll()");
+
+    function setActiveChapter(activeId) {
+      for (const link of navLinks) {
+        const isMatch = link.getAttribute("href") === `#${activeId}`;
+        if (isMatch) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      }
+    }
+
+    if (typeof IntersectionObserver !== "undefined" && chapters.length) {
+      const chapterObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              setActiveChapter(entry.target.id);
+            }
           }
-          const activeLink = linkBySectionId.get(entry.target.id);
-          if (activeLink) {
-            activeLink.setAttribute("aria-current", "location");
-          }
+        },
+        {
+          rootMargin: "-25% 0px -45% 0px",
+          threshold: 0,
+        }
+      );
+
+      for (const chap of chapters) {
+        chapterObserver.observe(chap);
+      }
+    }
+
+    // Scroll update loop for fallback progress bar
+    let ticking = false;
+
+    function onScrollUpdate() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (!supportsCssScrollTimeline && progressBar && docHeight > 0) {
+        const progress = Math.min(1, Math.max(0, scrollY / docHeight));
+        progressBar.style.transform = `scaleX(${progress})`;
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(onScrollUpdate);
+          ticking = true;
         }
       },
-      {
-        rootMargin: "-35% 0px -55% 0px",
-        threshold: 0,
-      }
+      { passive: true }
     );
 
-    for (const section of sections) {
-      observer.observe(section);
-    }
+    onScrollUpdate();
   }
 
   /**
@@ -133,8 +325,12 @@
 
     if (supportsNativeViewTimeline || typeof IntersectionObserver === "undefined") return;
 
-    const elements = document.querySelectorAll(".reveal-on-scroll");
-    if (!elements.length) return;
+    const configs = [
+      { selector: ".reveal-on-scroll", fallbackClass: "reveal-fallback" },
+      { selector: ".reveal-from-left", fallbackClass: "reveal-fallback-left" },
+      { selector: ".reveal-from-right", fallbackClass: "reveal-fallback-right" },
+      { selector: ".reveal-scale", fallbackClass: "reveal-fallback-scale" },
+    ];
 
     const observer = new IntersectionObserver(
       (entries, obs) => {
@@ -148,9 +344,12 @@
       { threshold: 0.12 }
     );
 
-    for (const el of elements) {
-      el.classList.add("reveal-fallback");
-      observer.observe(el);
+    for (const { selector, fallbackClass } of configs) {
+      const elements = document.querySelectorAll(selector);
+      for (const el of elements) {
+        el.classList.add(fallbackClass);
+        observer.observe(el);
+      }
     }
   }
 
@@ -605,8 +804,9 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    initEnvelope();
+    initScrollStory();
     initCountdown();
-    initNavObserver();
     initScrollReveals();
     initRsvpForm();
   });
