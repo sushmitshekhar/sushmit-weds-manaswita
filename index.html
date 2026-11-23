@@ -757,33 +757,54 @@
 
             <!-- Guest Count Counter -->
             <div>
-              <label class="block text-xs font-semibold tracking-wider text-emerald-950 uppercase">
+              <label for="attendees-count" class="block text-xs font-semibold tracking-wider text-emerald-950 uppercase">
                 Number of Guests Attending
               </label>
-              <div class="mt-1.5 flex items-center gap-3">
-                <button
-                  type="button"
-                  id="dec-guests"
-                  class="flex h-10 w-10 items-center justify-center rounded-xl border border-cream-300 bg-white text-lg font-bold text-ink-700 hover:bg-cream-100 cursor-pointer"
-                  aria-label="Decrease guest count"
-                >&minus;</button>
-                <input
-                  type="number"
-                  id="attendees-count"
-                  name="attendees_count"
-                  min="1"
-                  max="10"
-                  value="1"
-                  readonly
-                  class="h-10 w-16 rounded-xl border border-cream-300 bg-white text-center font-serif text-lg font-bold text-emerald-950"
-                >
-                <button
-                  type="button"
-                  id="inc-guests"
-                  class="flex h-10 w-10 items-center justify-center rounded-xl border border-cream-300 bg-white text-lg font-bold text-ink-700 hover:bg-cream-100 cursor-pointer"
-                  aria-label="Increase guest count"
-                >&plus;</button>
-                <span class="text-xs font-medium text-ink-600">Guest(s)</span>
+              <div class="mt-2 flex items-center gap-3.5">
+                <!-- Unified Luxury Stepper Capsule -->
+                <div class="inline-flex items-center rounded-xl border border-gold-400/40 bg-[#FAF4ED] p-1 shadow-sm">
+                  <!-- Decrease Button -->
+                  <button
+                    type="button"
+                    id="dec-guests"
+                    class="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-emerald-950 shadow-xs border border-gold-300/40 transition-all hover:bg-gold-50 hover:border-gold-400 active:scale-95 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                    aria-label="Decrease guest count"
+                  >
+                    <svg aria-hidden="true" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </button>
+
+                  <!-- Perfectly Aligned Digit Display -->
+                  <input
+                    type="number"
+                    id="attendees-count"
+                    name="attendees_count"
+                    min="1"
+                    max="10"
+                    value="1"
+                    readonly
+                    class="h-9 w-12 border-0 bg-transparent p-0 text-center font-display text-lg font-bold text-emerald-950 tabular-nums focus:outline-none focus:ring-0 select-none"
+                    aria-label="Number of guests attending"
+                  >
+
+                  <!-- Increase Button -->
+                  <button
+                    type="button"
+                    id="inc-guests"
+                    class="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-emerald-950 shadow-xs border border-gold-300/40 transition-all hover:bg-gold-50 hover:border-gold-400 active:scale-95 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                    aria-label="Increase guest count"
+                  >
+                    <svg aria-hidden="true" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </button>
+                </div>
+
+                <span id="guests-label-suffix" class="text-xs font-semibold tracking-wide text-emerald-950 uppercase">
+                  Guest
+                </span>
               </div>
             </div>
 

@@ -859,6 +859,19 @@ body {
   font-weight: 600;
 }
 
+/* Number stepper clean appearance */
+#attendees-count {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  line-height: 1;
+}
+
+#attendees-count::-webkit-inner-spin-button,
+#attendees-count::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Active navigation link styling — pure color & glow, zero underlines */
 .nav-link {
   position: relative;
