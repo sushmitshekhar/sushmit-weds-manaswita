@@ -97,6 +97,17 @@
     linear-gradient(160deg, #05231b 0%, #083327 52%, #0c4132 100%);
 }
 
+/* Atmospheric Royal Emerald & Gold background for desktop widescreen */
+body {
+  background-color: #051b15;
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(212, 175, 90, 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 12% 35%, rgba(25, 104, 81, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 88% 65%, rgba(25, 104, 81, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(212, 175, 90, 0.08) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
 /* Subtle linen stationery texture on cream sections */
 .linen-surface {
   background-color: #fbf8f1;
@@ -337,6 +348,26 @@
   transform: translateY(-2px);
 }
 
+@media (min-width: 768px) {
+  .env-wrapper {
+    transform: scale(1.15);
+    margin: 1.75rem 0;
+  }
+  .env-wrapper:hover {
+    transform: scale(1.15) translateY(-3px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .env-wrapper {
+    transform: scale(1.28);
+    margin: 2.75rem 0 2rem;
+  }
+  .env-wrapper:hover {
+    transform: scale(1.28) translateY(-4px);
+  }
+}
+
 /* Layer 1: Back wall of envelope and inner silk lining */
 .env-back {
   position: absolute;
@@ -499,12 +530,44 @@
   position: relative;
 }
 
+@media (min-width: 640px) {
+  .deck-container {
+    width: min(90vw, 560px);
+  }
+}
+
+@media (min-width: 768px) {
+  .deck-container {
+    width: min(88vw, 680px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .deck-container {
+    width: min(85vw, 780px);
+  }
+}
+
 .deck-slot {
   position: sticky;
   top: calc(5.25rem + var(--deck-i, 0) * 22px);
   margin-bottom: 6.5rem;
   transition: transform 0.35s ease;
   will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .deck-slot {
+    top: calc(5.75rem + var(--deck-i, 0) * 28px);
+    margin-bottom: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .deck-slot {
+    top: calc(6rem + var(--deck-i, 0) * 32px);
+    margin-bottom: 9.5rem;
+  }
 }
 
 .deck-slot:last-child {
@@ -529,6 +592,26 @@
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
+@media (min-width: 768px) {
+  .deck-card {
+    border-radius: 190px 190px 1.5rem 1.5rem;
+    padding: 3.75rem 3rem 3rem;
+    min-height: 450px;
+    box-shadow:
+      0 6px 12px rgba(0, 0, 0, 0.3),
+      0 30px 60px -15px rgba(0, 0, 0, 0.75),
+      0 0 40px -10px rgba(212, 175, 90, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .deck-card {
+    border-radius: 220px 220px 1.75rem 1.75rem;
+    padding: 4.5rem 4rem 3.5rem;
+    min-height: 490px;
+  }
+}
+
 .deck-card::before {
   content: "";
   position: absolute;
@@ -536,6 +619,21 @@
   border-radius: 130px 130px 0.95rem 0.95rem;
   border: 1px solid rgba(212, 175, 90, 0.35);
   pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .deck-card::before {
+    inset: 13px;
+    border-radius: 178px 178px 1.25rem 1.25rem;
+    border-width: 1.5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .deck-card::before {
+    inset: 16px;
+    border-radius: 206px 206px 1.5rem 1.5rem;
+  }
 }
 
 /* Distinctive Luxury Paper Tones (matching ScrollVite palette) */
@@ -575,6 +673,21 @@
   border: 1px solid rgba(212, 175, 90, 0.4);
 }
 
+@media (min-width: 768px) {
+  .stationery-card {
+    border-radius: 200px 200px 1.75rem 1.75rem;
+    box-shadow:
+      0 30px 70px -15px rgba(0, 0, 0, 0.75),
+      0 0 50px -10px rgba(212, 175, 90, 0.22);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stationery-card {
+    border-radius: 240px 240px 2rem 2rem;
+  }
+}
+
 .stationery-card::before {
   content: "";
   position: absolute;
@@ -582,6 +695,21 @@
   border-radius: 140px 140px 1rem 1rem;
   border: 1px solid rgba(212, 175, 90, 0.35);
   pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .stationery-card::before {
+    inset: 14px;
+    border-radius: 188px 188px 1.45rem 1.45rem;
+    border-width: 1.5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stationery-card::before {
+    inset: 18px;
+    border-radius: 224px 224px 1.7rem 1.7rem;
+  }
 }
 
 /* Night Sky Countdown Section */

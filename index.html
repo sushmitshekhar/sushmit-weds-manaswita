@@ -66,7 +66,25 @@
     <section id="envelope-intro" class="env-stage relative flex min-h-[96vh] flex-col items-center justify-center px-4 pt-16 pb-12 text-cream-50 sm:pt-20 sm:pb-16">
       <!-- Ambient Royal Silk Glow (confined overflow) -->
       <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-gold-400/15 via-emerald-800/20 to-transparent blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-gold-400/20 via-emerald-700/25 to-transparent blur-3xl md:h-[760px] md:w-[760px]"></div>
+      </div>
+
+      <!-- Royal Corner Flourishes (Desktop/Laptop Framing) -->
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 hidden overflow-hidden md:block">
+        <!-- Top Left Flourish -->
+        <svg class="absolute top-8 left-8 h-20 w-20 text-gold-400/35" viewBox="0 0 80 80" fill="none">
+          <path d="M4 4 L44 4 C30 9 18 21 13 35 L13 13 L35 13 C21 18 9 30 4 44 Z" fill="currentColor" opacity="0.35"/>
+          <path d="M4 6 C24 6 40 22 40 42 M4 12 C20 12 34 26 34 42 M4 18 C16 18 28 30 28 42" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="8" cy="8" r="3" fill="currentColor"/>
+          <circle cx="18" cy="18" r="2" fill="currentColor"/>
+        </svg>
+        <!-- Top Right Flourish -->
+        <svg class="absolute top-8 right-8 h-20 w-20 -scale-x-100 text-gold-400/35" viewBox="0 0 80 80" fill="none">
+          <path d="M4 4 L44 4 C30 9 18 21 13 35 L13 13 L35 13 C21 18 9 30 4 44 Z" fill="currentColor" opacity="0.35"/>
+          <path d="M4 6 C24 6 40 22 40 42 M4 12 C20 12 34 26 34 42 M4 18 C16 18 28 30 28 42" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="8" cy="8" r="3" fill="currentColor"/>
+          <circle cx="18" cy="18" r="2" fill="currentColor"/>
+        </svg>
       </div>
 
       <!-- Quick Skip Button (Top Right) -->
@@ -79,6 +97,19 @@
           <span>Skip Intro</span>
           <span aria-hidden="true">&darr;</span>
         </a>
+      </div>
+
+      <!-- Regal Desktop Headline (Visible on laptop/desktop screens) -->
+      <div class="mb-5 hidden text-center select-none pointer-events-none md:block">
+        <div class="inline-flex items-center gap-2 rounded-full border border-gold-400/35 bg-emerald-950/70 px-4 py-1 backdrop-blur-sm">
+          <span class="h-1.5 w-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+          <p class="font-serif text-xs font-semibold tracking-[0.28em] text-gold-300 uppercase">Auspicious Wedding Invitation</p>
+          <span class="h-1.5 w-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+        </div>
+        <h1 class="mt-3 font-serif text-3xl font-bold tracking-wider text-cream-50 lg:text-4xl xl:text-5xl">
+          Sushmit <span class="font-script text-4xl text-gold-300 font-normal lg:text-5xl xl:text-6xl">&amp;</span> Manaswita
+        </h1>
+        <p class="mt-1.5 font-serif text-xs tracking-[0.22em] text-cream-200/80 uppercase lg:text-sm">February 15–16, 2027 &bull; Jamshedpur, Jharkhand</p>
       </div>
 
       <!-- Royal Envelope Scene Container (provides ample vertical clearance for flip & letter rise) -->
@@ -217,82 +248,90 @@
          SECTION 2: THE ROYAL INVITATION CARD (MEHRAB ARCH STATIONERY)
          ========================================================= -->
     <section id="invitation" aria-labelledby="invitation-heading" class="relative py-14 px-4 sm:py-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-[440px] sm:max-w-[460px]">
+      <div class="mx-auto max-w-[440px] sm:max-w-[500px] md:max-w-2xl lg:max-w-3xl">
 
         <!-- Arched Physical Stationery Card -->
-        <article class="stationery-card relative mx-auto p-6 pt-10 pb-8 text-center sm:p-9 sm:pt-14 sm:pb-11">
+        <article class="stationery-card relative mx-auto p-6 pt-10 pb-8 text-center sm:p-9 sm:pt-14 sm:pb-11 md:p-14 md:pt-16 md:pb-14 shadow-2xl">
 
           <!-- Sacred Sanskrit Invocation -->
-          <div class="mb-3.5">
-            <p class="font-serif text-base sm:text-lg font-bold tracking-[0.22em] text-gold-600 uppercase">
+          <div class="mb-3.5 md:mb-5">
+            <p class="font-serif text-base font-bold tracking-[0.24em] text-gold-600 uppercase sm:text-lg md:text-xl">
               ॥ श्री गणेशाय नमः ॥
             </p>
             <!-- Sanskrit Mangalacharan Shloka -->
-            <blockquote class="mt-1 font-serif text-xs italic text-ink-600 leading-relaxed sm:text-sm">
+            <blockquote class="mt-1 font-serif text-xs italic text-ink-600 leading-relaxed sm:text-sm md:text-base">
               &ldquo;वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>
               निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥&rdquo;
             </blockquote>
-            <div class="gold-rule mx-auto my-3 w-20"></div>
+            <div class="gold-rule mx-auto my-3 w-20 md:w-32"></div>
           </div>
 
-          <!-- The Inviting Families -->
-          <div class="space-y-1 text-ink-700">
-            <p class="font-serif text-xs font-semibold tracking-[0.18em] text-gold-700 uppercase">
-              Together with their families
-            </p>
-            <p class="font-serif text-xs sm:text-sm text-ink-800">
-              son of <strong class="font-semibold text-emerald-950">Smt. Indira Dutta</strong> &amp; <strong class="font-semibold text-emerald-950">Shri Chandra Shekhar Prasad</strong>
-            </p>
+          <!-- The Inviting Families Lineage -->
+          <div class="my-4 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 border-y border-gold-400/25 py-3.5 text-xs sm:text-sm text-ink-800 font-serif">
+            <div class="text-center md:text-right md:pr-4 md:border-r md:border-gold-300/40">
+              <p class="font-serif text-[0.6875rem] font-semibold tracking-[0.18em] text-gold-700 uppercase">
+                Groom's Lineage
+              </p>
+              <p class="mt-1 leading-snug">
+                son of <strong class="font-semibold text-emerald-950">Smt. Indira Dutta</strong><br>
+                &amp; <strong class="font-semibold text-emerald-950">Shri Chandra Shekhar Prasad</strong>
+              </p>
+            </div>
+            <div class="text-center md:text-left md:pl-4">
+              <p class="font-serif text-[0.6875rem] font-semibold tracking-[0.18em] text-gold-700 uppercase">
+                Bride's Lineage
+              </p>
+              <p class="mt-1 leading-snug">
+                daughter of <strong class="font-semibold text-emerald-950">Smt. Rama Sutradhar Datta</strong><br>
+                &amp; <strong class="font-semibold text-emerald-950">Shri Bhaskar Datta</strong>
+              </p>
+            </div>
           </div>
 
           <!-- The Couple's Names in Stately Serifs -->
-          <h1 id="invitation-heading" class="my-3 space-y-0.5 sm:my-4">
-            <span class="block font-display text-[clamp(2.2rem,6.8vw,3.5rem)] font-bold tracking-tight text-emerald-950 leading-[1.08]">
+          <h1 id="invitation-heading" class="my-4 space-y-0.5 sm:my-5 md:my-6">
+            <span class="block font-display text-[clamp(2.2rem,6.8vw,3.5rem)] md:text-[clamp(2.8rem,4.5vw,4.25rem)] font-bold tracking-tight text-emerald-950 leading-[1.08]">
               Sushmit
             </span>
-            <span class="block -my-2 font-script text-[clamp(1.9rem,5.5vw,2.75rem)] font-normal text-gold-600">
+            <span class="block -my-2 font-script text-[clamp(1.9rem,5.5vw,2.75rem)] md:text-[clamp(2.4rem,4vw,3.25rem)] font-normal text-gold-600">
               &amp;
             </span>
-            <span class="block font-display text-[clamp(2.2rem,6.8vw,3.5rem)] font-bold tracking-tight text-emerald-950 leading-[1.08]">
+            <span class="block font-display text-[clamp(2.2rem,6.8vw,3.5rem)] md:text-[clamp(2.8rem,4.5vw,4.25rem)] font-bold tracking-tight text-emerald-950 leading-[1.08]">
               Manaswita
             </span>
           </h1>
 
-          <!-- Bride's Parents Lineage -->
-          <p class="font-serif text-xs sm:text-sm text-ink-800">
-            daughter of <strong class="font-semibold text-emerald-950">Smt. Rama Sutradhar Datta</strong> &amp; <strong class="font-semibold text-emerald-950">Shri Bhaskar Datta</strong>
-          </p>
-
           <!-- Invitation Verse -->
-          <p class="mt-3 font-serif text-xs sm:text-sm italic leading-relaxed text-ink-700">
+          <p class="mt-3 font-serif text-xs sm:text-sm md:text-base italic leading-relaxed text-ink-700">
             request the pleasure of your company<br class="hidden sm:inline">
             at the celebration of their marriage
           </p>
 
           <!-- Auspicious Date & Muhurat Ribbon -->
-          <div class="my-4.5 rounded-xl border border-gold-400/35 bg-[#FAF4ED] p-3.5 sm:my-5 sm:p-4">
-            <div class="flex items-center justify-center gap-1.5 text-xs font-bold tracking-[0.16em] text-gold-800 uppercase">
-              <svg aria-hidden="true" class="h-3.5 w-3.5 text-gold-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="3" y="4" width="18" height="18" rx="2" />
-                <path d="M16 2v4M8 2v4M3 10h18" />
-              </svg>
-              <time datetime="2027-02-16">Tuesday, February 16, 2027</time>
+          <div class="my-5 rounded-2xl border border-gold-400/40 bg-[#FAF4ED] p-4 sm:p-5 md:flex md:items-center md:justify-between md:px-8 shadow-sm">
+            <div class="text-center md:text-left">
+              <div class="flex items-center justify-center gap-1.5 text-xs font-bold tracking-[0.16em] text-gold-800 uppercase md:justify-start">
+                <svg aria-hidden="true" class="h-3.5 w-3.5 text-gold-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>
+                <time datetime="2027-02-16">Tuesday, February 16, 2027</time>
+              </div>
+
+              <div class="mt-1 font-serif text-base font-bold text-emerald-950 sm:text-lg md:text-xl">
+                7:00 PM onwards &bull; 8:00 PM Baraat
+              </div>
+              <p class="mt-0.5 text-[0.6875rem] text-ink-600">Varmala &amp; Sacred Rituals to Follow</p>
             </div>
 
-            <div class="mt-1 font-serif text-base font-bold text-emerald-950 sm:text-lg">
-              7:00 PM onwards &bull; 8:00 PM Baraat
+            <div class="mt-3 border-t border-gold-300/40 pt-2.5 text-center md:mt-0 md:border-t-0 md:border-l md:pt-0 md:pl-6 md:text-right">
+              <p class="font-serif text-base font-bold text-emerald-950 md:text-lg">Beldhi Golf Course</p>
+              <p class="text-xs text-ink-600">Northern Town, Jamshedpur</p>
             </div>
-            <p class="mt-0.5 text-[0.6875rem] text-ink-600">Varmala &amp; Sacred Rituals to Follow</p>
           </div>
 
           <!-- Venue & Navigation Link -->
-          <div class="space-y-0.5">
-            <p class="font-serif text-lg font-bold text-emerald-950 sm:text-xl">
-              Beldhi Golf Course
-            </p>
-            <p class="text-xs text-ink-600">
-              Northern Town, Circuit House Area, Sonari, Jamshedpur
-            </p>
+          <div class="space-y-0.5 pt-1">
             <div class="pt-1.5">
               <a
                 href="https://www.google.com/maps?q=22.8091068,86.1737869"
@@ -309,7 +348,7 @@
             </div>
           </div>
 
-          <p class="mt-4 font-serif text-xs italic text-ink-600">
+          <p class="mt-4 font-serif text-xs italic text-ink-600 sm:text-sm">
             Dinner &amp; festivities to follow
           </p>
         </article>
@@ -324,54 +363,54 @@
          SECTION 3: WITH OUR FAMILIES (BLESSINGS & LINEAGE)
          ========================================================= -->
     <section id="families" aria-labelledby="families-heading" class="relative py-14 px-4 sm:py-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
+      <div class="mx-auto max-w-4xl lg:max-w-5xl text-center">
         <p class="text-xs font-semibold tracking-[0.22em] text-gold-300 uppercase">
           With Heartfelt Blessings
         </p>
         <h2 id="families-heading" class="mt-1.5 font-serif text-[clamp(1.85rem,4.5vw,2.75rem)] font-semibold text-cream-50">
           With Our Families
         </h2>
-        <p class="mx-auto mt-2 max-w-md text-xs leading-relaxed text-cream-100/85 sm:text-sm">
+        <p class="mx-auto mt-2 max-w-lg text-xs leading-relaxed text-cream-100/85 sm:text-sm">
           As two loving families unite in celebration, our parents cordially invite you to bless Sushmit and Manaswita.
         </p>
 
         <!-- Parents Arched Cards Grid -->
-        <div class="mt-8 grid items-stretch gap-4 sm:grid-cols-2 sm:gap-6">
+        <div class="mt-8 grid items-stretch gap-5 sm:grid-cols-2 sm:gap-6 lg:gap-8">
 
           <!-- Bride's Parents Card -->
-          <div class="relative rounded-2xl border border-gold-400/35 bg-[#FFFDF8] p-5 sm:p-6 text-ink-900 shadow-md">
+          <div class="relative rounded-2xl border border-gold-400/40 bg-[#FFFDF8] p-6 sm:p-8 lg:p-10 text-ink-900 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-gold-400/70 hover:-translate-y-1 overflow-hidden before:absolute before:inset-2.5 before:rounded-xl before:border before:border-gold-400/20 before:pointer-events-none">
             <span class="inline-block rounded-full bg-emerald-100/80 px-3 py-0.5 text-[0.6875rem] font-bold tracking-wider text-emerald-950 uppercase">
               Bride's Parents
             </span>
-            <h3 class="mt-3.5 font-serif text-xl font-bold text-emerald-950 sm:text-2xl">
+            <h3 class="mt-3.5 font-serif text-xl font-bold text-emerald-950 sm:text-2xl md:text-3xl">
               Bhaskar Datta
             </h3>
-            <p class="font-serif text-base font-medium text-gold-700 sm:text-lg">
+            <p class="font-serif text-base font-medium text-gold-700 sm:text-lg md:text-xl">
               &amp; Rama Sutradhar Datta
             </p>
-            <p class="mt-2 text-xs leading-relaxed text-ink-600">
+            <p class="mt-2.5 text-xs sm:text-sm leading-relaxed text-ink-600">
               Joining hands with immense joy as our families come together with love and heartfelt blessings.
             </p>
-            <div class="mt-4 border-t border-cream-200 pt-3 text-[0.7rem] font-medium text-emerald-900">
+            <div class="mt-5 border-t border-cream-200 pt-3 text-[0.7rem] sm:text-xs font-medium text-emerald-900">
               Datta Family &bull; Parents of the Bride
             </div>
           </div>
 
           <!-- Groom's Parents Card -->
-          <div class="relative rounded-2xl border border-gold-400/35 bg-[#FFFDF8] p-5 sm:p-6 text-ink-900 shadow-md">
+          <div class="relative rounded-2xl border border-gold-400/40 bg-[#FFFDF8] p-6 sm:p-8 lg:p-10 text-ink-900 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-gold-400/70 hover:-translate-y-1 overflow-hidden before:absolute before:inset-2.5 before:rounded-xl before:border before:border-gold-400/20 before:pointer-events-none">
             <span class="inline-block rounded-full bg-emerald-100/80 px-3 py-0.5 text-[0.6875rem] font-bold tracking-wider text-emerald-950 uppercase">
               Groom's Parents
             </span>
-            <h3 class="mt-3.5 font-serif text-xl font-bold text-emerald-950 sm:text-2xl">
+            <h3 class="mt-3.5 font-serif text-xl font-bold text-emerald-950 sm:text-2xl md:text-3xl">
               Chandra Shekhar Prasad
             </h3>
-            <p class="font-serif text-base font-medium text-gold-700 sm:text-lg">
+            <p class="font-serif text-base font-medium text-gold-700 sm:text-lg md:text-xl">
               &amp; Indira Dutta
             </p>
-            <p class="mt-2 text-xs leading-relaxed text-ink-600">
+            <p class="mt-2.5 text-xs sm:text-sm leading-relaxed text-ink-600">
               Welcoming dearest family and friends to the celebrations in Sonari West and Beldhi Golf Course, Jamshedpur.
             </p>
-            <div class="mt-4 border-t border-cream-200 pt-3 text-[0.7rem] font-medium text-emerald-900">
+            <div class="mt-5 border-t border-cream-200 pt-3 text-[0.7rem] sm:text-xs font-medium text-emerald-900">
               Prasad &amp; Dutta Family &bull; Parents of the Groom
             </div>
           </div>
@@ -391,7 +430,7 @@
          SECTION 4: THE CELEBRATIONS (STACKING DECK OF ARCHED CARDS)
          ========================================================= -->
     <section id="events" aria-labelledby="events-heading" class="relative py-14 px-4 sm:py-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-xl text-center">
+      <div class="mx-auto max-w-2xl text-center">
         <p class="text-xs font-semibold tracking-[0.22em] text-gold-300 uppercase">
           Schedule of Rituals
         </p>
@@ -409,29 +448,39 @@
         <!-- Card 0: Sangeet & Ring Ceremony (Rani Wine Arched Card) -->
         <div class="deck-slot" style="--deck-i: 0;">
           <article class="deck-card deck-card--rani">
-            <span class="inline-block rounded-full bg-gold-400/20 px-3 py-0.5 text-[0.6875rem] font-bold tracking-[0.14em] text-gold-200 uppercase">
+            <span class="inline-block rounded-full bg-gold-400/20 px-3.5 py-0.5 text-[0.6875rem] font-bold tracking-[0.14em] text-gold-200 uppercase">
               Monday, February 15, 2027 &bull; Evening
             </span>
 
-            <h3 class="mt-2 font-script text-[clamp(2.35rem,6.2vw,3.15rem)] font-normal text-cream-50 leading-tight">
+            <h3 class="mt-2.5 font-script text-[clamp(2.35rem,6.2vw,3.5rem)] font-normal text-cream-50 leading-tight">
               Sangeet
             </h3>
-            <p class="font-serif text-xs font-semibold uppercase tracking-wider text-gold-200 mt-0.5">
+            <p class="font-serif text-xs font-semibold uppercase tracking-wider text-gold-200 mt-0.5 sm:text-sm">
               &amp; Ring Ceremony
             </p>
             <p class="font-serif text-xs sm:text-sm italic text-gold-200/90 mt-1">&ldquo;Good music. Questionable dance moves.&rdquo;</p>
 
-            <p class="mt-2.5 text-xs leading-relaxed text-cream-100/90 sm:text-sm">
+            <p class="mt-3 max-w-md text-xs leading-relaxed text-cream-100/90 sm:text-sm">
               Celebrate the exchange of rings with spirited dance performances, lively music, and joyful toasts.
             </p>
 
-            <div class="mt-4 border-t border-gold-300/25 pt-3 text-xs text-cream-100 space-y-1 sm:text-sm">
-              <p><strong class="text-gold-200">Time:</strong> 7:00 PM onwards</p>
-              <p><strong class="text-gold-200">Venue:</strong> F Road, Sonari West, Jamshedpur</p>
-              <p><strong class="text-gold-200">Attire:</strong> Jewel Tones &amp; Shimmer</p>
+            <!-- 3-Column Ceremony Details Grid (Mobile & Desktop) -->
+            <div class="mt-5 w-full border-t border-gold-300/25 pt-4 text-xs text-cream-100 sm:text-sm grid grid-cols-1 md:grid-cols-3 gap-2.5 md:gap-3 text-center">
+              <div class="rounded-xl bg-black/25 p-2.5 border border-gold-400/20">
+                <span class="block text-[0.625rem] uppercase tracking-widest text-gold-300 font-bold">Muhurat</span>
+                <span class="mt-0.5 block font-semibold text-xs sm:text-sm">7:00 PM onwards</span>
+              </div>
+              <div class="rounded-xl bg-black/25 p-2.5 border border-gold-400/20">
+                <span class="block text-[0.625rem] uppercase tracking-widest text-gold-300 font-bold">Venue</span>
+                <span class="mt-0.5 block font-semibold text-xs sm:text-sm">F Road, Sonari West</span>
+              </div>
+              <div class="rounded-xl bg-black/25 p-2.5 border border-gold-400/20">
+                <span class="block text-[0.625rem] uppercase tracking-widest text-gold-300 font-bold">Attire</span>
+                <span class="mt-0.5 block font-semibold text-xs sm:text-sm">Jewel Tones &amp; Shimmer</span>
+              </div>
             </div>
 
-            <div class="mt-3.5">
+            <div class="mt-4">
               <a href="https://www.google.com/maps?q=22.818944,86.1621792" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs font-semibold tracking-wider text-gold-300 transition-colors hover:text-white uppercase">
                 Map Directions &nearr;
               </a>
@@ -442,26 +491,36 @@
         <!-- Card 1: Haldi Ceremony (Warm Saffron Arched Card) -->
         <div class="deck-slot" style="--deck-i: 1;">
           <article class="deck-card deck-card--saffron">
-            <span class="inline-block rounded-full bg-amber-600/10 px-3 py-0.5 text-[0.6875rem] font-bold tracking-[0.14em] text-amber-900 uppercase">
+            <span class="inline-block rounded-full bg-amber-600/10 px-3.5 py-0.5 text-[0.6875rem] font-bold tracking-[0.14em] text-amber-900 uppercase">
               Tuesday, February 16, 2027 &bull; Morning
             </span>
 
-            <h3 class="mt-2 font-script text-[clamp(2.35rem,6.2vw,3.15rem)] font-normal text-amber-950 leading-tight">
+            <h3 class="mt-2.5 font-script text-[clamp(2.35rem,6.2vw,3.5rem)] font-normal text-amber-950 leading-tight">
               Haldi Ceremony
             </h3>
             <p class="font-serif text-xs sm:text-sm italic text-amber-800">&ldquo;Sunshine, blessings, and all things yellow.&rdquo;</p>
 
-            <p class="mt-2.5 text-xs leading-relaxed text-ink-700 sm:text-sm">
+            <p class="mt-3 max-w-md text-xs leading-relaxed text-ink-700 sm:text-sm">
               Sunlit turmeric blessings, fragrant floral showers, and cheerful morning laughter with family.
             </p>
 
-            <div class="mt-4 border-t border-gold-400/30 pt-3 text-xs text-ink-800 space-y-1 sm:text-sm">
-              <p><strong class="text-amber-950">Time:</strong> 10:00 AM onwards</p>
-              <p><strong class="text-amber-950">Venue:</strong> F Road, Sonari West, Jamshedpur</p>
-              <p><strong class="text-amber-950">Attire:</strong> Marigold Yellow &amp; Ivory</p>
+            <!-- 3-Column Ceremony Details Grid (Mobile & Desktop) -->
+            <div class="mt-5 w-full border-t border-gold-400/30 pt-4 text-xs text-ink-800 sm:text-sm grid grid-cols-1 md:grid-cols-3 gap-2.5 md:gap-3 text-center">
+              <div class="rounded-xl bg-amber-600/10 p-2.5 border border-amber-800/20">
+                <span class="block text-[0.625rem] uppercase tracking-widest text-amber-900 font-bold">Muhurat</span>
+                <span class="mt-0.5 block font-semibold text-xs sm:text-sm text-amber-950">10:00 AM onwards</span>
+              </div>
+              <div class="rounded-xl bg-amber-600/10 p-2.5 border border-amber-800/20">
+                <span class="block text-[0.625rem] uppercase tracking-widest text-amber-900 font-bold">Venue</span>
+                <span class="mt-0.5 block font-semibold text-xs sm:text-sm text-amber-950">F Road, Sonari West</span>
+              </div>
+              <div class="rounded-xl bg-amber-600/10 p-2.5 border border-amber-800/20">
+                <span class="block text-[0.625rem] uppercase tracking-widest text-amber-900 font-bold">Attire</span>
+                <span class="mt-0.5 block font-semibold text-xs sm:text-sm text-amber-950">Marigold Yellow &amp; Ivory</span>
+              </div>
             </div>
 
-            <div class="mt-3.5">
+            <div class="mt-4">
               <a href="https://www.google.com/maps?q=22.818944,86.1621792" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs font-semibold tracking-wider text-amber-900 transition-colors hover:text-amber-950 uppercase">
                 Map Directions &nearr;
               </a>
@@ -472,29 +531,39 @@
         <!-- Card 2: The Wedding & Reception (Royal Emerald & Gold Arched Card) -->
         <div class="deck-slot" style="--deck-i: 2;">
           <article class="deck-card deck-card--emerald shadow-2xl">
-            <span class="inline-block rounded-full bg-gold-400/25 px-3 py-0.5 text-[0.6875rem] font-bold tracking-[0.14em] text-gold-200 uppercase">
+            <span class="inline-block rounded-full bg-gold-400/25 px-3.5 py-0.5 text-[0.6875rem] font-bold tracking-[0.14em] text-gold-200 uppercase">
               Tuesday, February 16, 2027 &bull; Evening
             </span>
 
-            <h3 class="mt-2 font-script text-[clamp(2.35rem,6.2vw,3.15rem)] font-normal text-cream-50 leading-tight">
+            <h3 class="mt-2.5 font-script text-[clamp(2.35rem,6.2vw,3.5rem)] font-normal text-cream-50 leading-tight">
               The Wedding
             </h3>
-            <p class="font-serif text-xs font-semibold uppercase tracking-wider text-gold-200 mt-0.5">
+            <p class="font-serif text-xs font-semibold uppercase tracking-wider text-gold-200 mt-0.5 sm:text-sm">
               &amp; Jamshedpur Reception
             </p>
             <p class="font-serif text-xs sm:text-sm italic text-gold-200 mt-1">&ldquo;The vows, the rituals, the beginning of forever.&rdquo;</p>
 
-            <p class="mt-2.5 text-xs leading-relaxed text-cream-100/90 sm:text-sm">
+            <p class="mt-3 max-w-md text-xs leading-relaxed text-cream-100/90 sm:text-sm">
               Join Sushmit's 8:00 PM Baraat procession followed by the varmala, sacred pheras, feast, and celebration under the stars.
             </p>
 
-            <div class="mt-4 border-t border-gold-300/30 pt-3 text-xs text-cream-100 space-y-1 sm:text-sm">
-              <p><strong class="text-gold-200">Muhurat:</strong> 7:00 PM onwards &bull; 8:00 PM Baraat</p>
-              <p><strong class="text-gold-200">Venue:</strong> Beldhi Golf Course, Northern Town, Jamshedpur</p>
-              <p><strong class="text-gold-200">Attire:</strong> Traditional Silk &amp; Festive</p>
+            <!-- 3-Column Ceremony Details Grid (Mobile & Desktop) -->
+            <div class="mt-5 w-full border-t border-gold-300/30 pt-4 text-xs text-cream-100 sm:text-sm grid grid-cols-1 md:grid-cols-3 gap-2.5 md:gap-3 text-center">
+              <div class="rounded-xl bg-black/25 p-2.5 border border-gold-400/20">
+                <span class="block text-[0.625rem] uppercase tracking-widest text-gold-300 font-bold">Muhurat</span>
+                <span class="mt-0.5 block font-semibold text-xs sm:text-sm">7:00 PM &bull; 8:00 PM Baraat</span>
+              </div>
+              <div class="rounded-xl bg-black/25 p-2.5 border border-gold-400/20">
+                <span class="block text-[0.625rem] uppercase tracking-widest text-gold-300 font-bold">Venue</span>
+                <span class="mt-0.5 block font-semibold text-xs sm:text-sm">Beldhi Golf Course</span>
+              </div>
+              <div class="rounded-xl bg-black/25 p-2.5 border border-gold-400/20">
+                <span class="block text-[0.625rem] uppercase tracking-widest text-gold-300 font-bold">Attire</span>
+                <span class="mt-0.5 block font-semibold text-xs sm:text-sm">Traditional Silk &amp; Festive</span>
+              </div>
             </div>
 
-            <div class="mt-3.5">
+            <div class="mt-4">
               <a href="https://www.google.com/maps?q=22.8091068,86.1737869" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs font-semibold tracking-wider text-gold-300 transition-colors hover:text-white uppercase">
                 Map Directions &nearr;
               </a>
@@ -511,39 +580,39 @@
     <!-- =========================================================
          SECTION 5: AUSPICIOUS NIGHT SKY COUNTDOWN (.FV-NIGHT)
          ========================================================= -->
-    <section id="countdown-section" aria-labelledby="countdown-heading" class="fv-night relative py-14 px-4 text-center text-cream-50 sm:py-20">
-      <div class="mx-auto max-w-md">
-        <p class="text-xs font-semibold tracking-[0.22em] text-gold-300 uppercase">
+    <section id="countdown-section" aria-labelledby="countdown-heading" class="fv-night relative py-14 px-4 text-center text-cream-50 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-2xl lg:max-w-3xl">
+        <p class="text-xs font-semibold tracking-[0.24em] text-gold-300 uppercase sm:text-sm">
           Shubh Muhurat
         </p>
-        <h2 id="countdown-heading" class="mt-1.5 font-serif text-xl sm:text-2xl font-bold text-cream-50">
+        <h2 id="countdown-heading" class="mt-2 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-cream-50">
           Counting Down to the Sacred Day
         </h2>
-        <p class="mt-1 text-xs text-cream-200/80 sm:text-sm">
-          Until Tuesday, February 16, 2027 &bull; Beldhi Golf Course
+        <p class="mt-1.5 text-xs text-cream-200/80 sm:text-sm md:text-base">
+          Until Tuesday, February 16, 2027 &bull; Beldhi Golf Course, Jamshedpur
         </p>
 
         <!-- Live Countdown Box -->
-        <div id="countdown" role="timer" aria-live="off" aria-label="Countdown to February 16, 2027" class="mt-6 grid grid-cols-4 gap-2 sm:gap-3">
-          <div class="rounded-xl border border-gold-400/35 bg-emerald-950/85 p-2 sm:p-3 backdrop-blur-sm">
-            <span id="cd-days" class="block font-serif text-2xl font-bold text-gold-100 sm:text-4xl tabular-nums">--</span>
-            <span class="mt-0.5 block text-[0.625rem] font-medium tracking-[0.14em] text-gold-300 uppercase sm:text-xs">Days</span>
+        <div id="countdown" role="timer" aria-live="off" aria-label="Countdown to February 16, 2027" class="mt-8 grid grid-cols-4 gap-2.5 sm:gap-4 md:gap-6">
+          <div class="rounded-2xl border border-gold-400/40 bg-emerald-950/90 p-3 sm:p-5 md:p-6 lg:p-7 backdrop-blur-md shadow-2xl">
+            <span id="cd-days" class="block font-serif text-2xl font-bold text-gold-100 sm:text-4xl md:text-5xl lg:text-6xl tabular-nums">--</span>
+            <span class="mt-1 block text-[0.625rem] font-bold tracking-[0.18em] text-gold-300 uppercase sm:text-xs md:text-sm">Days</span>
           </div>
-          <div class="rounded-xl border border-gold-400/35 bg-emerald-950/85 p-2 sm:p-3 backdrop-blur-sm">
-            <span id="cd-hours" class="block font-serif text-2xl font-bold text-gold-100 sm:text-4xl tabular-nums">--</span>
-            <span class="mt-0.5 block text-[0.625rem] font-medium tracking-[0.14em] text-gold-300 uppercase sm:text-xs">Hours</span>
+          <div class="rounded-2xl border border-gold-400/40 bg-emerald-950/90 p-3 sm:p-5 md:p-6 lg:p-7 backdrop-blur-md shadow-2xl">
+            <span id="cd-hours" class="block font-serif text-2xl font-bold text-gold-100 sm:text-4xl md:text-5xl lg:text-6xl tabular-nums">--</span>
+            <span class="mt-1 block text-[0.625rem] font-bold tracking-[0.18em] text-gold-300 uppercase sm:text-xs md:text-sm">Hours</span>
           </div>
-          <div class="rounded-xl border border-gold-400/35 bg-emerald-950/85 p-2 sm:p-3 backdrop-blur-sm">
-            <span id="cd-minutes" class="block font-serif text-2xl font-bold text-gold-100 sm:text-4xl tabular-nums">--</span>
-            <span class="mt-0.5 block text-[0.625rem] font-medium tracking-[0.14em] text-gold-300 uppercase sm:text-xs">Minutes</span>
+          <div class="rounded-2xl border border-gold-400/40 bg-emerald-950/90 p-3 sm:p-5 md:p-6 lg:p-7 backdrop-blur-md shadow-2xl">
+            <span id="cd-minutes" class="block font-serif text-2xl font-bold text-gold-100 sm:text-4xl md:text-5xl lg:text-6xl tabular-nums">--</span>
+            <span class="mt-1 block text-[0.625rem] font-bold tracking-[0.18em] text-gold-300 uppercase sm:text-xs md:text-sm">Minutes</span>
           </div>
-          <div class="rounded-xl border border-gold-400/35 bg-emerald-950/85 p-2 sm:p-3 backdrop-blur-sm">
-            <span id="cd-seconds" class="block font-serif text-2xl font-bold text-gold-100 sm:text-4xl tabular-nums">--</span>
-            <span class="mt-0.5 block text-[0.625rem] font-medium tracking-[0.14em] text-gold-300 uppercase sm:text-xs">Seconds</span>
+          <div class="rounded-2xl border border-gold-400/40 bg-emerald-950/90 p-3 sm:p-5 md:p-6 lg:p-7 backdrop-blur-md shadow-2xl">
+            <span id="cd-seconds" class="block font-serif text-2xl font-bold text-gold-100 sm:text-4xl md:text-5xl lg:text-6xl tabular-nums">--</span>
+            <span class="mt-1 block text-[0.625rem] font-bold tracking-[0.18em] text-gold-300 uppercase sm:text-xs md:text-sm">Seconds</span>
           </div>
         </div>
 
-        <p id="countdown-status" class="mt-3 hidden font-serif text-base text-gold-200 italic"></p>
+        <p id="countdown-status" class="mt-4 hidden font-serif text-base text-gold-200 italic md:text-lg"></p>
       </div>
     </section>
 
@@ -554,60 +623,60 @@
          SECTION 6: TRAVEL & VENUE ASSISTANCE
          ========================================================= -->
     <section id="travel" aria-labelledby="travel-heading" class="relative py-14 px-4 sm:py-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
+      <div class="mx-auto max-w-4xl lg:max-w-5xl text-center">
         <p class="text-xs font-semibold tracking-[0.22em] text-gold-300 uppercase">
           Hospitality &amp; Coordination
         </p>
-        <h2 id="travel-heading" class="mt-1.5 font-serif text-xl sm:text-2xl font-bold text-cream-50">
+        <h2 id="travel-heading" class="mt-2 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-cream-50">
           Travel &amp; Hospitality
         </h2>
-        <p class="mx-auto mt-2 max-w-md text-xs leading-relaxed text-cream-100/85 sm:text-sm">
+        <p class="mx-auto mt-2 max-w-lg text-xs leading-relaxed text-cream-100/85 sm:text-sm">
           We want your journey to Jamshedpur to be comfortable and seamless.
         </p>
 
         <!-- Travel Cards Grid -->
-        <div class="mt-8 grid gap-4 text-left sm:grid-cols-3">
+        <div class="mt-8 grid gap-5 text-left sm:grid-cols-3 lg:gap-6">
 
           <!-- By Train & Station Pickup Assistance -->
-          <div class="rounded-xl border border-gold-400/35 bg-[#FFFDF8] p-4 sm:p-5 text-ink-900 shadow-sm">
-            <div class="mb-2.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-900 text-gold-200">
-              <svg aria-hidden="true" class="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <div class="relative rounded-2xl border border-gold-400/40 bg-[#FFFDF8] p-6 lg:p-7 text-ink-900 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-gold-400/70 hover:-translate-y-1 overflow-hidden before:absolute before:inset-2.5 before:rounded-xl before:border before:border-gold-400/20 before:pointer-events-none">
+            <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900 text-gold-200 shadow-sm">
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <rect x="4" y="3" width="16" height="14" rx="3" />
                 <path d="M4 11h16M12 3v8M8 21l2-4M16 21l-2-4" />
               </svg>
             </div>
-            <h3 class="font-serif text-base font-bold text-emerald-950 sm:text-lg">Station Pickup</h3>
-            <p class="mt-1.5 text-xs leading-relaxed text-ink-600">
+            <h3 class="font-serif text-lg font-bold text-emerald-950 sm:text-xl">Station Pickup</h3>
+            <p class="mt-2 text-xs leading-relaxed text-ink-600 sm:text-sm">
               <strong>Tatanagar Junction (TATA)</strong> is just 20–25 minutes from the venues. Dedicated family pickup is available for our guests.
             </p>
-            <p class="mt-2.5 text-xs font-semibold text-emerald-900">
+            <p class="mt-3 text-xs font-semibold text-emerald-900">
               Select pickup in RSVP below &darr;
             </p>
           </div>
 
           <!-- By Air (Ranchi Airport) -->
-          <div class="rounded-xl border border-gold-400/35 bg-[#FFFDF8] p-4 sm:p-5 text-ink-900 shadow-sm">
-            <div class="mb-2.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-900 text-gold-200">
-              <svg aria-hidden="true" class="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <div class="relative rounded-2xl border border-gold-400/40 bg-[#FFFDF8] p-6 lg:p-7 text-ink-900 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-gold-400/70 hover:-translate-y-1 overflow-hidden before:absolute before:inset-2.5 before:rounded-xl before:border before:border-gold-400/20 before:pointer-events-none">
+            <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900 text-gold-200 shadow-sm">
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z" />
               </svg>
             </div>
-            <h3 class="font-serif text-base font-bold text-emerald-950 sm:text-lg">Ranchi Airport</h3>
-            <p class="mt-1.5 text-xs leading-relaxed text-ink-600">
+            <h3 class="font-serif text-lg font-bold text-emerald-950 sm:text-xl">Ranchi Airport</h3>
+            <p class="mt-2 text-xs leading-relaxed text-ink-600 sm:text-sm">
               Birsa Munda Airport, Ranchi is ~130 km via NH-43 (2.5–3 hrs drive). We can assist in coordinating comfortable highway cabs.
             </p>
           </div>
 
           <!-- The Venues in Jamshedpur -->
-          <div class="rounded-xl border border-gold-400/35 bg-[#FFFDF8] p-4 sm:p-5 text-ink-900 shadow-sm">
-            <div class="mb-2.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-900 text-gold-200">
-              <svg aria-hidden="true" class="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <div class="relative rounded-2xl border border-gold-400/40 bg-[#FFFDF8] p-6 lg:p-7 text-ink-900 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-gold-400/70 hover:-translate-y-1 overflow-hidden before:absolute before:inset-2.5 before:rounded-xl before:border before:border-gold-400/20 before:pointer-events-none">
+            <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-900 text-gold-200 shadow-sm">
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
             </div>
-            <h3 class="font-serif text-base font-bold text-emerald-950 sm:text-lg">Venues</h3>
-            <p class="mt-1.5 text-xs leading-relaxed text-ink-600">
+            <h3 class="font-serif text-lg font-bold text-emerald-950 sm:text-xl">Venues</h3>
+            <p class="mt-2 text-xs leading-relaxed text-ink-600 sm:text-sm">
               <strong>Beldhi Golf Course:</strong> Wedding &amp; Reception.<br>
               <strong>F Road, Sonari West:</strong> Sangeet &amp; Haldi ceremonies.<br>
               Both in Northern Town area.
@@ -625,18 +694,18 @@
          SECTION 7: RSVP CARD & HOSPITALITY COORDINATION
          ========================================================= -->
     <section id="rsvp" aria-labelledby="rsvp-heading" class="relative py-14 px-4 sm:py-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-[440px] sm:max-w-[460px]">
+      <div class="mx-auto max-w-[440px] sm:max-w-[500px] md:max-w-2xl lg:max-w-3xl">
 
         <!-- Arched Stationery RSVP Card -->
-        <div class="stationery-card relative p-6 pt-10 pb-8 sm:p-8 sm:pt-12 sm:pb-10 shadow-2xl">
+        <div class="stationery-card relative p-6 pt-10 pb-8 sm:p-8 sm:pt-12 sm:pb-10 md:p-12 md:pt-14 md:pb-12 shadow-2xl">
           <div class="text-center">
             <p class="font-serif text-xs font-bold tracking-[0.22em] text-gold-700 uppercase">
               Kindly Respond
             </p>
-            <h2 id="rsvp-heading" class="mt-1.5 font-serif text-2xl sm:text-3xl font-bold text-emerald-950">
+            <h2 id="rsvp-heading" class="mt-1.5 font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-950">
               RSVP for Celebrations
             </h2>
-            <p class="mx-auto mt-1.5 max-w-xs text-xs leading-relaxed text-ink-600">
+            <p class="mx-auto mt-1.5 max-w-sm text-xs leading-relaxed text-ink-600 sm:text-sm">
               Please let us know if you will be attending so we can prepare your hospitality and arrangements.
             </p>
           </div>
@@ -645,41 +714,44 @@
           <form id="rsvp-form" novalidate class="mt-8 space-y-5 text-left">
             <div id="rsvp-form-alert" role="alert" class="hidden rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-900"></div>
 
-            <!-- Full Name -->
-            <div>
-              <label for="guest-name" class="block text-xs font-semibold tracking-wider text-emerald-950 uppercase">
-                Your Full Name <span class="text-red-700">*</span>
-              </label>
-              <input
-                type="text"
-                id="guest-name"
-                name="guest_name"
-                required
-                autocomplete="name"
-                placeholder="e.g., Rohan Verma &amp; Family"
-                class="rsvp-input mt-1.5 block min-h-11 w-full rounded-xl border border-cream-300 bg-white px-3.5 py-2.5 text-sm text-ink-900 transition-colors focus:border-emerald-800 focus:outline-none"
-              >
-              <div id="guest-name-error" class="field-error mt-1 hidden text-xs font-medium text-red-800">
-                Please enter your name.
+            <!-- Name & Phone Grid (2 columns on tablet/desktop) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Full Name -->
+              <div>
+                <label for="guest-name" class="block text-xs font-semibold tracking-wider text-emerald-950 uppercase">
+                  Your Full Name <span class="text-red-700">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="guest-name"
+                  name="guest_name"
+                  required
+                  autocomplete="name"
+                  placeholder="e.g., Rohan Verma &amp; Family"
+                  class="rsvp-input mt-1.5 block min-h-11 w-full rounded-xl border border-cream-300 bg-white px-3.5 py-2.5 text-sm text-ink-900 transition-colors focus:border-emerald-800 focus:outline-none"
+                >
+                <div id="guest-name-error" class="field-error mt-1 hidden text-xs font-medium text-red-800">
+                  Please enter your name.
+                </div>
               </div>
-            </div>
 
-            <!-- Phone Number -->
-            <div>
-              <label for="guest-phone" class="block text-xs font-semibold tracking-wider text-emerald-950 uppercase">
-                WhatsApp / Phone Number <span class="text-red-700">*</span>
-              </label>
-              <input
-                type="tel"
-                id="guest-phone"
-                name="guest_phone"
-                required
-                autocomplete="tel"
-                placeholder="e.g., +91 98765 43210"
-                class="rsvp-input mt-1.5 block min-h-11 w-full rounded-xl border border-cream-300 bg-white px-3.5 py-2.5 text-sm text-ink-900 transition-colors focus:border-emerald-800 focus:outline-none"
-              >
-              <div id="guest-phone-error" class="field-error mt-1 hidden text-xs font-medium text-red-800">
-                Please enter a valid phone number.
+              <!-- Phone Number -->
+              <div>
+                <label for="guest-phone" class="block text-xs font-semibold tracking-wider text-emerald-950 uppercase">
+                  WhatsApp / Phone Number <span class="text-red-700">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="guest-phone"
+                  name="guest_phone"
+                  required
+                  autocomplete="tel"
+                  placeholder="e.g., +91 98765 43210"
+                  class="rsvp-input mt-1.5 block min-h-11 w-full rounded-xl border border-cream-300 bg-white px-3.5 py-2.5 text-sm text-ink-900 transition-colors focus:border-emerald-800 focus:outline-none"
+                >
+                <div id="guest-phone-error" class="field-error mt-1 hidden text-xs font-medium text-red-800">
+                  Please enter a valid phone number.
+                </div>
               </div>
             </div>
 
@@ -692,7 +764,7 @@
                 <button
                   type="button"
                   id="dec-guests"
-                  class="flex h-10 w-10 items-center justify-center rounded-xl border border-cream-300 bg-white text-lg font-bold text-ink-700 hover:bg-cream-100"
+                  class="flex h-10 w-10 items-center justify-center rounded-xl border border-cream-300 bg-white text-lg font-bold text-ink-700 hover:bg-cream-100 cursor-pointer"
                   aria-label="Decrease guest count"
                 >&minus;</button>
                 <input
@@ -708,7 +780,7 @@
                 <button
                   type="button"
                   id="inc-guests"
-                  class="flex h-10 w-10 items-center justify-center rounded-xl border border-cream-300 bg-white text-lg font-bold text-ink-700 hover:bg-cream-100"
+                  class="flex h-10 w-10 items-center justify-center rounded-xl border border-cream-300 bg-white text-lg font-bold text-ink-700 hover:bg-cream-100 cursor-pointer"
                   aria-label="Increase guest count"
                 >&plus;</button>
                 <span class="text-xs font-medium text-ink-600">Guest(s)</span>
