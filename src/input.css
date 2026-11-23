@@ -731,30 +731,16 @@
   font-weight: 600;
 }
 
-/* Active navigation link styling */
-.nav-link[aria-current="location"] {
-  color: #f3dfb0;
-}
-
-.nav-link[aria-current="location"]::after {
-  transform: scaleX(1);
-}
-
+/* Active navigation link styling — pure color & glow, zero underlines */
 .nav-link {
   position: relative;
+  transition: color 0.25s ease, opacity 0.25s ease;
 }
 
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0.5rem;
-  right: 0.5rem;
-  bottom: 0.25rem;
-  height: 1.5px;
-  background-color: #d4af5a;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.25s ease;
+.nav-link[aria-current="location"] {
+  color: #f3dfb0;
+  font-weight: 600;
+  opacity: 1;
 }
 
 @media (forced-colors: active) {

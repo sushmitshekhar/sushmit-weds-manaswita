@@ -360,8 +360,7 @@
     const summary = "Sushmit & Manaswita's Wedding Celebrations";
     const location = "Beldhi Golf Course, Northern Town, Bistupur, Jamshedpur, Jharkhand 831001";
     const description =
-      `Wedding Celebrations of Sushmit & Manaswita (14–16 February 2027).\n` +
-      `• Feb 14: Mehendi (7:00 PM onwards, F Road, Sonari West)\n` +
+      `Wedding Celebrations of Sushmit & Manaswita (15–16 February 2027).\n` +
       `• Feb 15: Sangeet & Ring Ceremony (7:00 PM onwards, F Road, Sonari West)\n` +
       `• Feb 16: Haldi (10:00 AM onwards, F Road, Sonari West)\n` +
       `• Feb 16: The Wedding Ceremony & Reception (7:00 PM onwards, 8:00 PM Baraat at Beldhi Golf Course, Jamshedpur)\n` +
@@ -404,7 +403,7 @@
    * 1. Create a Google Form with fields:
    *    - Guest Full Name (Short answer)
    *    - Number of Attendees (Short answer or Dropdown 1-10)
-   *    - Events Attending (Checkboxes: Mehandi, Sangeet & Ring Ceremony, Haldi, Wedding & Reception)
+   *    - Events Attending (Checkboxes: Sangeet & Ring Ceremony, Haldi, Wedding & Reception)
    *    - Ready to Dance? (Multiple choice: "Yes! Save us a spot on the Sangeet dance floor", "Cheering warmly from the sidelines")
    *    - Warm Wishes / Note (Paragraph)
    * 2. Click the 3 dots (⋮) in the top-right of Google Forms -> "Get pre-filled link".
