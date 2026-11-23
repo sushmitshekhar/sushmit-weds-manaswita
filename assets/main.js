@@ -158,10 +158,15 @@
    * Generates and downloads a valid .ics calendar invite for February 16, 2027.
    */
   function downloadWeddingCalendar(guestName) {
-    const summary = "Sushmit & Manaswita's Wedding & Reception";
+    const summary = "Sushmit & Manaswita's Wedding Celebrations";
     const location = "Beldhi Golf Course, Northern Town, Bistupur, Jamshedpur, Jharkhand 831001";
     const description =
-      `Haldi: 11:00 AM onwards (F Road, Sonari West) | Wedding & Reception: 7:30 PM onwards (8:00 PM Baraat) at Beldhi Golf Course, Jamshedpur. Hosted by Chandra Shekhar Prasad, Indira Dutta & Family.` +
+      `Wedding Celebrations of Sushmit & Manaswita (14–16 February 2027).\n` +
+      `• Feb 14: Mehendi (7:00 PM onwards, F Road, Sonari West)\n` +
+      `• Feb 15: Sangeet & Ring Ceremony (7:00 PM onwards, F Road, Sonari West)\n` +
+      `• Feb 16: Haldi (10:00 AM onwards, F Road, Sonari West)\n` +
+      `• Feb 16: The Wedding Ceremony & Reception (7:00 PM onwards, 8:00 PM Baraat at Beldhi Golf Course, Jamshedpur)\n` +
+      `With warm blessings from Chandra Shekhar Prasad, Indira Dutta, Bhaskar Datta, Rama Sutradhar Datta & Families.` +
       (guestName ? ` Reserved for ${guestName}.` : "");
 
     const icsLines = [
@@ -230,6 +235,7 @@
       events: "entry.1448873091",
       hotelAssistance: "entry.776531113",
       cabAssistance: "entry.1790014294",
+      stationPickup: "", // Dedicated entry ID if added to Google Form (falls back to notes)
       readyToDance: "entry.1497753158",
       guestNote: "entry.771374680",
     },
@@ -251,6 +257,7 @@
     const suffixEl = document.getElementById("guests-label-suffix");
     const hotelCheckbox = document.getElementById("hotel-assistance");
     const cabCheckbox = document.getElementById("cab-assistance");
+    const stationPickupCheckbox = document.getElementById("station-pickup");
     const danceToggle = document.getElementById("ready-to-dance");
     const danceStatusEl = document.getElementById("dance-status-text");
     const formAlert = document.getElementById("rsvp-form-alert");
@@ -404,6 +411,7 @@
       );
       const hotelRequested = Boolean(hotelCheckbox && hotelCheckbox.checked);
       const cabRequested = Boolean(cabCheckbox && cabCheckbox.checked);
+      const stationPickupRequested = Boolean(stationPickupCheckbox && stationPickupCheckbox.checked);
       const readyToDance = Boolean(danceToggle && danceToggle.checked);
       const guestNote = document.getElementById("guest-note")?.value.trim() || "";
 
@@ -458,6 +466,14 @@
                   : "No — travel arrangements already made"
               );
             }
+            if (entries.stationPickup) {
+              payload.append(
+                entries.stationPickup,
+                stationPickupRequested
+                  ? "Yes — pickup assistance requested at Tatanagar Railway Station (TATA)"
+                  : "No — station pickup not required"
+              );
+            }
             if (entries.readyToDance) {
               payload.append(
                 entries.readyToDance,
@@ -466,8 +482,18 @@
                   : "Cheering warmly from the sidelines"
               );
             }
-            if (entries.guestNote && guestNote) {
-              payload.append(entries.guestNote, guestNote);
+
+            // If station pickup was requested but no dedicated entry ID exists yet in Google Forms,
+            // prepend note tag so hosts see it directly in their Google Sheet.
+            let finalNote = guestNote;
+            if (stationPickupRequested && !entries.stationPickup) {
+              finalNote = finalNote
+                ? `[Tatanagar Railway Station Pickup Requested]\n${finalNote}`
+                : `[Tatanagar Railway Station Pickup Requested]`;
+            }
+
+            if (entries.guestNote && finalNote) {
+              payload.append(entries.guestNote, finalNote);
             }
 
             payload.append("fvv", "1");
@@ -491,6 +517,7 @@
                 events: selectedEvents.join(", "),
                 hotelAssistance: hotelRequested ? "Requested" : "Not needed",
                 cabAssistance: cabRequested ? "Requested" : "Not needed",
+                stationPickup: stationPickupRequested ? "Requested (Tatanagar Junction)" : "Not needed",
                 readyToDance: readyToDance ? "Yes" : "No",
                 guestNote,
                 submittedAt: new Date().toISOString(),
@@ -535,6 +562,10 @@
           renderSummaryRow(
             "Ranchi Cab Transfer",
             cabRequested ? "Requested (Coordination team will connect)" : "Not required"
+          ),
+          renderSummaryRow(
+            "Station Pickup",
+            stationPickupRequested ? "Requested (Tatanagar Junction / TATA)" : "Not required"
           ),
           renderSummaryRow(
             "Ready to Dance?",
